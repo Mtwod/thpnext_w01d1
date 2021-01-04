@@ -6244,3 +6244,11 @@ const totalRevenue = array => {
 
 totalRevenue(users);
 
+console.log("Combien avons-nous d'utilisateurs en France ?");
+
+const frenchUsers = array => {
+  frenchUsersArray = array.filter(user => user.country == "France");
+  console.log(frenchUsersArray.length);
+}
+
+frenchUsers(users);
