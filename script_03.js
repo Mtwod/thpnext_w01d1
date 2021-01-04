@@ -6239,7 +6239,7 @@ console.log("Combien avons-nous gagné d'argent au total ?");
 
 const totalRevenue = array => {
   total = sum(revenues(array));
-  return total
+  return total;
 }
 console.log(totalRevenue(users));
 
@@ -6266,3 +6266,16 @@ const displayFourBestRevenue = () => {
 }
 
 displayFourBestRevenue();
+
+console.log("Fais-moi la liste de tous les pays dans lesquels nous avons gagné de l'argent ?");
+
+const payingCountries = array => {
+  let countries = []
+  let positiveRevenueArray = positiveRevenue(users);
+  positiveRevenueArray.forEach(user => {
+    if (!countries.includes(user.country)) countries.push(user.country);
+  });
+  return countries;
+}
+
+console.log(payingCountries(users));
