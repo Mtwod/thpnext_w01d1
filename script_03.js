@@ -6304,3 +6304,19 @@ const fiveMostPaidUser = array => {
 }
 
 console.log(fiveMostPaidUser(users));
+
+console.log("Gagnons-nous plus d'argent auprès des hommes ou des femmes ?");
+
+const maleUsers = array => array.filter(user => user.sex == "M");
+const femaleUsers = array => array.filter(user => user.sex == "F");
+
+const displayGenderWithBestTotalRevenue = array => {
+  maleTotal = sum(revenues(maleUsers(users)));
+  femaleTotal = sum(revenues(femaleUsers(users)));
+  maleTotal > femaleTotal ? gender = 'hommes' : gender = 'femmes'
+  console.log(`Les hommes ont rapporté ${maleTotal}`);
+  console.log(`Les femmes ont rapporté ${femaleTotal}`);
+  console.log(`Ce sont donc les ${gender} qui ont rapporté le plus !`);
+}
+
+displayGenderWithBestTotalRevenue(users);
