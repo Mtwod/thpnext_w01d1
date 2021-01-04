@@ -6239,16 +6239,20 @@ console.log("Combien avons-nous gagné d'argent au total ?");
 
 const totalRevenue = array => {
   total = sum(revenues(array));
-  console.log(total);
+  return total
 }
-
-totalRevenue(users);
+console.log(totalRevenue(users));
 
 console.log("Combien avons-nous d'utilisateurs en France ?");
 
-const frenchUsers = array => {
-  frenchUsersArray = array.filter(user => user.country == "France");
-  console.log(frenchUsersArray.length);
-}
+const countryUsers = (array, countryName) => array.filter(user => user.country == countryName);
 
-frenchUsers(users);
+console.log(countryUsers(users, "France").length);
+
+
+console.log("Parmi ces utilisateurs, combien avons-nous de clients payants en France ?");
+
+const payingFrenchUsers = array => countryUsers(array, "France").filter(user => user.revenue > 0);
+
+console.log(payingFrenchUsers(users).length);
+
