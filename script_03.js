@@ -6279,3 +6279,28 @@ const payingCountries = array => {
 }
 
 console.log(payingCountries(users));
+
+console.log("Quels sont nos 5 utilisateurs qui nous ont rapporté le plus d'agent ?");
+
+const bestRevenueUser = array => {
+  let bestRevenueUser = array[0];
+  array.forEach(user => {
+    if (user.revenue > bestRevenueUser.revenue) bestRevenueUser = user;
+  });
+  return bestRevenueUser;
+}
+
+console.log(bestRevenueUser(users));
+
+const fiveMostPaidUser = array => {
+  copyArray = JSON.parse(JSON.stringify(array));
+  let finalArray = [];
+  for (i = 0; i < 5; i++) {
+    best = bestRevenueUser(copyArray);
+    finalArray.push(best);
+    copyArray.splice(copyArray.indexOf(copyArray.find(user => user == best)), 1);
+  }
+  return finalArray;
+}
+
+console.log(fiveMostPaidUser(users));
