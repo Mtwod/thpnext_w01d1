@@ -6202,12 +6202,18 @@ const users = [
 
 console.log("Quel est le chiffre d'affaires moyen par utilisateur ?");
 
-const averageRevenue = array => {
-  let revenueArray = [];
+const sum = array => array.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+
+const revenues = array => {
+  revenueArray = [];
   array.forEach(user => {
     revenueArray.push(user.revenue);
   });
-  total = revenueArray.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+  return revenueArray;
+}
+
+const averageRevenue = array => {
+  total = sum(revenues(users));
   average = Number.parseInt(total / array.length);
   console.log(average);
 }
@@ -6216,11 +6222,25 @@ averageRevenue(users);
 
 console.log("Quel est le pourcentage d'utilisateurs ayant rapporté de l'argent (revenue supérieur à 0) ?");
 
+const positiveRevenue = array => array.filter(user => user.revenue > 0);
+
 const positiveRevenuePercentage = array => {
-  let positiveRevenueArray = array.filter(user => user.revenue > 0);
-  percentage = Number.parseInt((positiveRevenueArray.length / array.length) * 100)
+  percentage = Number.parseInt((positiveRevenue(array).length / array.length) * 100)
   console.log(`${percentage} %`);
 }
 
 positiveRevenuePercentage(users);
+
+console.log("Parmi les utilisateurs ayant rapporté de l'argent, quel est le chiffre d'affaires moyen d'un utilisateur ?");
+
+averageRevenue(positiveRevenue(users));
+
+console.log("Combien avons-nous gagné d'argent au total ?");
+
+const totalRevenue = array => {
+  total = sum(revenues(array));
+  console.log(total);
+}
+
+totalRevenue(users);
 
