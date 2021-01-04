@@ -6256,3 +6256,13 @@ const payingFrenchUsers = array => countryUsers(array, "France").filter(user => 
 
 console.log(payingFrenchUsers(users).length);
 
+console.log("Donne-moi le chiffre d'affaires réparti dans nos 4 pays les plus représentés (Allemagne, États-Unis, France, Grande-Bretagne) (chiffre d'affaires total, en France, aux États-Unis, etc.)");
+
+const displayFourBestRevenue = () => {
+  console.log(`L'allemagne a un chiffre d'affaires total de ${totalRevenue(countryUsers(users, 'Germany'))}`);
+  console.log(`Les États-Unis ont un chiffre d'affaires total de ${totalRevenue(countryUsers(users, 'United States'))}`);
+  console.log(`La France a un chiffre d'affaires total de ${totalRevenue(countryUsers(users, 'France'))}`);
+  console.log(`La Grande-Bretagne a un chiffre d'affaires total de ${totalRevenue(countryUsers(users, 'Great Britain'))}`);
+}
+
+displayFourBestRevenue();
