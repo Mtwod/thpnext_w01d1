@@ -6226,10 +6226,10 @@ const positiveRevenue = array => array.filter(user => user.revenue > 0);
 
 const positiveRevenuePercentage = array => {
   percentage = Number.parseInt((positiveRevenue(array).length / array.length) * 100)
-  console.log(`${percentage} %`);
+  return percentage
 }
 
-positiveRevenuePercentage(users);
+console.log(`${positiveRevenuePercentage(users)} %`);
 
 console.log("Parmi les utilisateurs ayant rapporté de l'argent, quel est le chiffre d'affaires moyen d'un utilisateur ?");
 
@@ -6320,3 +6320,19 @@ const displayGenderWithBestTotalRevenue = array => {
 }
 
 displayGenderWithBestTotalRevenue(users);
+
+console.log("Sors-moi les utilisateurs ayant rapporté au moins 75€");
+
+console.log(users.filter(user => user.revenue > 74));
+
+console.log("Parmi nos 100 premiers utilisateurs, quel est le pourcentage qui sont des clients payants ?");
+
+const firstHundredUsers = array => {
+  let finalArray = [];
+  for (i = 0; i < 100; i++) {
+    finalArray.push(array[i]);
+  }
+  return finalArray
+}
+
+console.log(`${positiveRevenuePercentage(firstHundredUsers(users))} %`);
